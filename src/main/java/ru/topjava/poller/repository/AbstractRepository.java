@@ -7,6 +7,9 @@ public abstract class AbstractRepository<E, ID> {
     public E save(E entity) {
         return repository.save(entity);
     }
+    public AbstractRepository(JpaRepository<E, ID> repository) {
+        this.repository = repository;
+    }
 
     public void delete(ID id) {
         repository.deleteById(id);
