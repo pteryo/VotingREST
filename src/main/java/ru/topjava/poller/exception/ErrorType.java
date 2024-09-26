@@ -1,6 +1,6 @@
 package ru.topjava.poller.exception;
 
-import org.springframework.http.HttpStatus;
+import org.springframework.http .HttpStatus;
 
 public enum ErrorType {
 //    HttpStatus.BAD_REQUEST
