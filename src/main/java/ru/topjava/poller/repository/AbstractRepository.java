@@ -19,4 +19,7 @@ public abstract class AbstractRepository<E, ID> {
         return repository.findById(id).orElse(null);
     }
 
+    public E getReferenceById(ID id) {
+        return repository.getReferenceById(id);
+    }
 }
