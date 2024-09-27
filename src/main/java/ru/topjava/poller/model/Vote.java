@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "votes")
-public class Vote {
+public class Vote extends AbstractEntity {
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;

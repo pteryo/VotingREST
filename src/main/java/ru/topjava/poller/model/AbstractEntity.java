@@ -2,7 +2,7 @@ package ru.topjava.poller.model;
 
 import java.time.LocalDateTime;
 
-public class AbstractEntity {
+public class AbstractEntity  implements HasId {
     private Integer id;
     protected LocalDateTime createdAt;
 
