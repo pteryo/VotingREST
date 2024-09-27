@@ -4,8 +4,12 @@ VALUES ( 1, 'admin',      'admin',     'ROLE_ADMIN', now()),
        ( 3, 'Jeff Bezos', 'QWERTY',    'ROLE_USER',  now()),
        ( 4, 'Bill Gates', 'notQWERTY', 'ROLE_USER',  now());
 
+INSERT INTO menu (menu_id, place_id, created_at)
+VALUES (1, 1,  now()),
+       (2, 2,  now()),
+       (3, 3,  now());
 
-INSERT INTO menu_items (place_id,  price, created_at, food_name)
+INSERT INTO menu_items (menu_id,  price, created_at, food_name)
 VALUES (  01,   0.30, now(),'Asparagus'       ),
        (  01,   3.34, now(),'Biscuits'        ),
        (  03,   1.30, now(),'Bread'           ),
@@ -19,8 +23,7 @@ VALUES (  01,   0.30, now(),'Asparagus'       ),
 INSERT INTO votes (user_id, place_id, created_at)
 VALUES (2, 1, now()),
        (3, 2, now()),
-       (4, 3, now());
-
+       (4, 2, now());
 
 INSERT INTO places (place_id, created_at, name)
 VALUES (01,  now(), 'Home food court' ),
