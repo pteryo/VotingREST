@@ -7,7 +7,7 @@ VALUES ( 1, 'admin',      'QWERTY',    'ROLE_ADMIN'),
 INSERT INTO menu (menu_id, place_id, created_at)
 VALUES (1, 1,  (now() - INTERVAL '1 days')),
        (2, 2,  (now() - INTERVAL '1 days')),
-       (3, 3,  (now() - INTERVAL '1 days')));
+       (3, 3,  (now() - INTERVAL '1 days')),
        (4, 1,  now()),
        (5, 2,  now()),
        (6, 3,  now());

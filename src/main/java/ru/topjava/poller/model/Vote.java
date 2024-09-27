@@ -4,8 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import ru.topjava.poller.model.Place;
-import ru.topjava.poller.model.User;
 
 @Entity
 @Table(name = "votes")
@@ -16,7 +14,7 @@ public class Vote {
 
     @OneToOne
     @JoinColumn(name = "place_id", nullable = false)
-    private Place Place;
+    private Place place;
 
     public User getUser() {
         return user;
@@ -27,11 +25,11 @@ public class Vote {
     }
 
     public Place getPlace() {
-        return Place;
+        return place;
     }
 
     public void setPlace(Place place) {
-        Place = place;
+        this.place = place;
     }
 
 

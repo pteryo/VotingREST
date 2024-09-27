@@ -1,9 +1,21 @@
 package ru.topjava.poller.model;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
+@Entity
+@Table(name = "menu_items")
 public class MenuEntry {
+    @ManyToOne
+    @JoinColumn(name = "menu_id", nullable = false)
+    private Menu menu;
+
+    @NotBlank(message = "Fill name!")
+    @Column(nullable = false)
     private String name;
+
     private Double price;
+
     public String getName() {
         return name;
     }
@@ -19,6 +31,4 @@ public class MenuEntry {
     public void setPrice(Double price) {
         this.price = price;
     }
-
-
 }
