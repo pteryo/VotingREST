@@ -1,4 +1,4 @@
-package ru.topjava.poller.controller.exception;
+package ru.topjava.poller.util.exception;
 
 public class NotFoundException extends RuntimeException {
     public NotFoundException(String message) {

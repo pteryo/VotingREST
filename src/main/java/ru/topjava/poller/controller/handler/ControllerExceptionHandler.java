@@ -7,7 +7,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import ru.topjava.poller.controller.exception.NotFoundException;
+import ru.topjava.poller.util.exception.NotFoundException;
 
 @ControllerAdvice
 public class ControllerExceptionHandler {

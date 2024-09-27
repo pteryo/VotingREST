@@ -1,4 +1,4 @@
-package ru.topjava.poller.controller.exception;
+package ru.topjava.poller.util.exception;
 
 public class BadRequestException extends RuntimeException {
     public BadRequestException(String message) {
