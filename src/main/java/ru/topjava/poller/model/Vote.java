@@ -31,7 +31,4 @@ public class Vote extends AbstractEntity {
     public void setPlace(Place place) {
         this.place = place;
     }
-
-
-
 }

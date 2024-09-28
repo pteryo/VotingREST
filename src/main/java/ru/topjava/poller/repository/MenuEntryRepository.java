@@ -37,5 +37,10 @@ public class MenuEntryRepository extends AbstractRepository<MenuEntry, Integer> 
         menuEntry.setMenu(crudMenuRepository.getReferenceById(menuId));
         return crudMenuEntryRepository.save(menuEntry);
     }
+
+    @Transactional
+    public boolean delete(Integer id, Integer menuId) {
+        return crudMenuEntryRepository.delete(id, menuId) != 0;
+    }
 }
 
