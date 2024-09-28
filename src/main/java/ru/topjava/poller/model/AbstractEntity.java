@@ -1,35 +1,55 @@
 package ru.topjava.poller.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
-import org.springframework.data.annotation.CreatedDate;
-
-import java.time.LocalDateTime;
-
+import lombok.*;
+import org.springframework.data.domain.Persistable;
+import org.springframework.data.util.ProxyUtils;
+import org.springframework.util.Assert;
 
 @MappedSuperclass
-public class AbstractEntity  implements HasId {
-
+@Access(AccessType.FIELD)
+@Getter
+@Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
+public class AbstractBaseEntity implements Persistable<Integer>, HasId {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     protected Integer id;
 
-    @Column(name = "created_at", nullable = false, updatable = false)
-    @CreatedDate
-    protected LocalDateTime createdAt;
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Integer getId() {
+    // doesn't work for hibernate lazy proxy
+    public int id() {
+        Assert.notNull(id, "Fill id");
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    @Override
+    public boolean isNew() {
+        return id == null;
+    }
+
+    //    https://stackoverflow.com/questions/1638723
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || !getClass().equals(ProxyUtils.getUserClass(o))) {
+            return false;
+        }
+        AbstractBaseEntity that = (AbstractBaseEntity) o;
+        return id != null && id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id == null ? 0 : id;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + ":" + id;
     }
 }

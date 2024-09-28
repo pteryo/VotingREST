@@ -1,11 +1,20 @@
 package ru.topjava.poller.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.util.Assert;
+
 public interface HasId {
     Integer getId();
 
     void setId(Integer id);
 
-    default boolean isInitialised() {
-        return getId() != null;
+    @JsonIgnore
+    default boolean isNew() {
+        return getId() == null;
+    }
+
+    default int id() {
+        Assert.notNull(getId(), "Fill id");
+        return getId();
     }
 }
