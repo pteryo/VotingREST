@@ -4,8 +4,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "menu_items")
-public class MenuEntry {
+@Table(name = "menu_entry")
+public class MenuEntry extends AbstractEntity {
+
     @ManyToOne
     @JoinColumn(name = "menu_id", nullable = false)
     private Menu menu;
@@ -30,5 +31,9 @@ public class MenuEntry {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public Menu getMenu() {
+        return menu;
     }
 }

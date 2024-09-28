@@ -13,7 +13,7 @@ VALUES (1, 1,  (now() - INTERVAL '1 days')),
        (6, 3,  now());
 
 
-INSERT INTO menu_item (menu_id,  price, created_at, food_name)
+INSERT INTO menu_entry (menu_id,  price, created_at, name)
 VALUES VALUES (  01,   0.30, (now() - INTERVAL '1 days')),'Asparagus'       ),
               (  01,   3.34, (now() - INTERVAL '1 days')),'Biscuits'        ),
               (  03,   1.30, (now() - INTERVAL '1 days')),'Bread'           ),

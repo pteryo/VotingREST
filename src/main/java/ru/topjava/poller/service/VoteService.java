@@ -43,4 +43,9 @@ public class VoteService {
     public List<Vote> getAll() {
         return repository.getAll();
     }
+
+    public Vote findByUserId(Integer userId) {
+        Assert.notNull(userId, "User ID must not be null");
+        return ValidationUtil.checkNotFoundWithId(repository.findByUserId(userId), -1);
+    }
 }
