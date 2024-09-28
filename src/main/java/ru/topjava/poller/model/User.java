@@ -1,25 +1,29 @@
 package ru.topjava.poller.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "users")
 
 public class User extends AbstractEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    protected Integer id;
 
     @NotEmpty(message = "Fill username!")
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, name = "username")
     private String username;
 
     @NotEmpty(message = "Fill password!")
-    @Column(nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
     @NotEmpty(message = "Fill role!")
-    @Column(nullable = false)
+    @Column(name = "role", nullable = false)
+
     private String role;
 
     public String getUsername() {

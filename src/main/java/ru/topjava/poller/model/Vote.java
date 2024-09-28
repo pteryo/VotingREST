@@ -1,20 +1,17 @@
 package ru.topjava.poller.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "vote")
 public class Vote extends AbstractEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Integer id;
 
-    @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @OneToOne
     @JoinColumn(name = "place_id", nullable = false)
     private Place place;
 

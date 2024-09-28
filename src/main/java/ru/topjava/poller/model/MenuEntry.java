@@ -6,9 +6,13 @@ import jakarta.validation.constraints.NotBlank;
 @Entity
 @Table(name = "menu_entry")
 public class MenuEntry extends AbstractEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Integer id;
 
     @ManyToOne
     @JoinColumn(name = "menu_id", nullable = false)
+    @Column(name = "menu_id", nullable = false)
     private Menu menu;
 
     @NotBlank(message = "Fill name!")

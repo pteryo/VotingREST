@@ -8,8 +8,15 @@ import java.util.List;
 @Table(name = "menu")
 public class Menu extends AbstractEntity {
 
-    @OneToOne
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @OneToMany
+    @JoinColumn(name = "menu_id")
+    protected Integer id;
+
+
     @JoinColumn(name = "place_id", nullable = false)
+    @Column(name = "place_id", nullable = false)
     private Place place;
 
     public Place getPlace() {
