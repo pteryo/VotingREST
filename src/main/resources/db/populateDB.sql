@@ -30,13 +30,13 @@ VALUES ( 01,  01,   0.30, (now() - INTERVAL '1 days')),'Asparagus'       ),
 
 
 
-INSERT INTO vote (user_id, place_id, created_at)
-VALUES (2, 1, (now() - INTERVAL '1 days'))),
-       (3, 2, (now() - INTERVAL '1 days'))),
-       (4, 2, (now() - INTERVAL '1 days'))),
-       (2, 1, now()),
-	   (3, 1, now()),
-       (4, 2, now());
+INSERT INTO vote (id, user_id, place_id, created_at)
+VALUES ( 01, 02, 01, (now() - INTERVAL '1 days'))),
+       ( 02, 03, 02, (now() - INTERVAL '1 days'))),
+       ( 03, 04, 02, (now() - INTERVAL '1 days'))),
+       ( 04, 02, 01, now()),
+	   ( 05, 03, 01, now()),
+       ( 06, 04, 02, now());
 
 INSERT INTO place (id, created_at, name)
 VALUES (01,  now(), 'Home food court' ),

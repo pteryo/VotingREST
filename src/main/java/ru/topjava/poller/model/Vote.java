@@ -4,10 +4,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import org.springframework.data.annotation.Id;
 
 @Entity
 @Table(name = "vote")
 public class Vote extends AbstractEntity {
+
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
