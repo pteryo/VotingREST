@@ -36,4 +36,7 @@ public class MenuEntry extends AbstractEntity {
     public Menu getMenu() {
         return menu;
     }
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
 }
