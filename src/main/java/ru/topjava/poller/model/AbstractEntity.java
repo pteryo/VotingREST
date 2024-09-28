@@ -1,9 +1,20 @@
 package ru.topjava.poller.model;
 
+import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedDate;
+
 import java.time.LocalDateTime;
 
+
+@MappedSuperclass
 public class AbstractEntity  implements HasId {
-    private Integer id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Integer id;
+
+    @Column(name = "created_at", nullable = false, updatable = false)
+    @CreatedDate
     protected LocalDateTime createdAt;
 
     public LocalDateTime getCreatedAt() {
