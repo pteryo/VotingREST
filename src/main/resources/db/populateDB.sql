@@ -1,10 +1,10 @@
-INSERT INTO users ( user_id, username, password, role)
+INSERT INTO users ( id, username, password, role)
 VALUES ( 1, 'admin',      'QWERTY',    'ROLE_ADMIN'),
        ( 2, 'Elon Musk',  'QWERTY',    'ROLE_USER' ),
        ( 3, 'Jeff Bezos', 'QWERTY',    'ROLE_USER' ),
        ( 4, 'Bill Gates', 'notQWERTY', 'ROLE_USER' );
 
-INSERT INTO menu (menu_id, place_id, created_at)
+INSERT INTO menu (id, place_id, created_at)
 VALUES (1, 1,  (now() - INTERVAL '1 days')),
        (2, 2,  (now() - INTERVAL '1 days')),
        (3, 3,  (now() - INTERVAL '1 days')),
@@ -13,7 +13,7 @@ VALUES (1, 1,  (now() - INTERVAL '1 days')),
        (6, 3,  now());
 
 
-INSERT INTO menu_entry (menu_id,  price, created_at, name)
+INSERT INTO menu_entry (id, menu_id,  price, created_at, name)
 VALUES VALUES (  01,   0.30, (now() - INTERVAL '1 days')),'Asparagus'       ),
               (  01,   3.34, (now() - INTERVAL '1 days')),'Biscuits'        ),
               (  03,   1.30, (now() - INTERVAL '1 days')),'Bread'           ),
@@ -37,7 +37,7 @@ VALUES (2, 1, (now() - INTERVAL '1 days'))),
 	   (3, 1, now()),
        (4, 2, now());
 
-INSERT INTO place (place_id, created_at, name)
+INSERT INTO place (id, created_at, name)
 VALUES (01,  now(), 'Home food court' ),
        (02,  now(), 'JunkDonalds'     ),
        (03,  now(), 'Allergy fryes'   );
