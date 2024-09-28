@@ -6,7 +6,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "votes")
+@Table(name = "vote")
 public class Vote extends AbstractEntity {
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
