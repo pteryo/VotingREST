@@ -7,9 +7,8 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
 
-@Table(name = "Places")
+@Table(name = "place")
 @Entity
-
 public class Place extends AbstractEntity {
     @NotBlank(message = "Fill place! ")
     @Column(nullable = false, unique = true)
